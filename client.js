@@ -57,14 +57,29 @@ function employeeInfo(employee) {
   const newObject = {
     name: employee.name, //setting the employee's name
   };
+  console.log(calculateEmployeeBonus(employee));
 
   return newObject;
 }
 
-function caculateEmployeeBonus(employee) {
+function calculateEmployeeBonus(employee) {
   const rating = employee.reviewRating;
-  if (rating < 2) {
-  } else if (rating === 3) {
-    return employee.annualSalary * 0.04;
+  const salary = Number(employee.AnnualSalary);
+  let bonus = 0;
+  console.log('in calculate');
+  if (employee.employeeNumber.length === 4) {
+    bonus += salary * 0.05; // employee who has been with the company longer than 15 years.
+    console.log('4 digit employee number');
   }
+  if (rating < 2) {
+    bonus += 0;
+  } else if (rating === 3) {
+    bonus += salary * 0.04;
+  } else if (rating === 4) {
+    bonus += salary * 0.06;
+  } else if (rating === 5) {
+    bonus += salary * 0.1;
+  }
+  return bonus;
 }
+// end of  employee function bonus
