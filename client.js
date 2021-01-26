@@ -55,8 +55,16 @@ for (i = 0; i < employees.length; i++) {
 
 function employeeInfo(employee) {
   const newObject = {
-    name: employee.name, //checking the employ
+    name: employee.name, //setting the employee's name
   };
 
   return newObject;
+}
+
+function caculateEmployeeBonus(employee) {
+  const rating = employee.reviewRating;
+  if (rating < 2) {
+  } else if (rating === 3) {
+    return employee.annualSalary * 0.04;
+  }
 }
